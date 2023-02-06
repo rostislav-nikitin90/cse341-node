@@ -1,0 +1,39 @@
+{
+  "name": "cse341-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "swagger": "node ./swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rostislav-nikitin90/cse341-node.git"
+  },
+  "author": "Rostislav Nikitin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rostislav-nikitin90/cse341-node/issues"
+  },
+  "homepage": "https://github.com/rostislav-nikitin90/cse341-node#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.16.3",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.9.0",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.5.1"
+  }
+}
