@@ -8,7 +8,7 @@
       "email": "rosnikitin90@gmail.com"
     }
   },
-  "host": "localhost:8080",
+  "host": "cse-341-w06-nikitin-r.onrender.com",
   "basePath": "/",
   "tags": [
     {
@@ -20,9 +20,9 @@
       "description": "Operations about user"
     }
   ],
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
-    "/recipe/{RecipeName}": {
+    "/recipe/{recipeName}": {
       "get": {
         "tags": ["recipe"],
         "summary": "Finds Recipe by name",
@@ -52,47 +52,6 @@
           },
           "400": {
             "description": "Invalid recipe name value"
-          }
-        }
-      }
-    },
-    "/user": {
-      "post": {
-        "tags": ["user"],
-        "summary": "Create user",
-        "description": "This is for when a user creates an account.",
-        "operationId": "createUser",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Created user object",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Credentials"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "successfully created user",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer",
-                  "format": "int64"
-                },
-                "name": {
-                  "type": "string",
-                  "example": "Recipe Name"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid theme name value"
           }
         }
       }
@@ -150,7 +109,7 @@
       "post": {
         "tags": ["user"],
         "summary": "Create user",
-        "description": "This is for when a user creates an account",
+        "description": "This is for when a user creates an account.",
         "operationId": "createUser",
         "produces": ["application/json"],
         "parameters": [
@@ -165,11 +124,87 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": "A User object",
+          "201": {
+            "description": "successfully created user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Recipe Name"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid theme name value"
+          }
+        }
+      },
+      "put": {
+        "tags": ["user"],
+        "summary": "Update user",
+        "description": "",
+        "operationId": "updateUser",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The name to be updated.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated user object",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/User"
             }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully modified user"
+          },
+          "400": {
+            "description": "Invalid user supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["user"],
+        "summary": "Delete user",
+        "description": "",
+        "operationId": "deleteUser",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The name to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted user"
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       }

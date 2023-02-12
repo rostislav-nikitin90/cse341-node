@@ -27,6 +27,26 @@ module.exports = (mongoose) => {
     recipe_name: {
       type: String
     },
+    info: {
+      email: {
+        type: String
+      },
+      phoneNumber: {
+        type: String
+      },
+      currentLocation: {
+        type: String
+      },
+      openToNewOpportunities: {
+        type: Boolean
+      },
+      profileIsPublic: {
+        type: Boolean
+      },
+      recipe_name: {
+        type: String
+      }
+    },
     profile: {
       experience: {
         type: [mongoose.SchemaTypes.Mixed]
