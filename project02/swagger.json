@@ -8,7 +8,7 @@
       "email": "rosnikitin90@gmail.com"
     }
   },
-  "host": "localhost:8080",
+  "host": "cse-341-w07-nikitin-r.onrender.com",
   "basePath": "/",
   "tags": [
     {
@@ -20,7 +20,7 @@
       "description": "Operations about user"
     }
   ],
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/recipe/{recipeName}": {
       "get": {
