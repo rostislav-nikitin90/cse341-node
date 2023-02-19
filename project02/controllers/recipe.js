@@ -1,7 +1,7 @@
 const db = require('../models');
 const Recipe = db.recipe;
 
-exports.getRecipe = (req, res) => {
+module.exports.getRecipe = (req, res) => {
   const recipeName = req.params.recipeName;
   Recipe.find({ recipeName: recipeName })
     .then((data) => {
@@ -14,4 +14,23 @@ exports.getRecipe = (req, res) => {
         error: err
       });
     });
+};
+
+module.exports.deleteRecipe = async (req, res) => {
+  try {
+    const recipeName = req.params.recipeName;
+    if (!recipeName) {
+      res.status(400).send({ message: 'Invalid Recipe Supplied' });
+      return;
+    }
+    Recipe.deleteOne({ recipeName: recipeName }, function (err, result) {
+      if (err) {
+        res.status(500).json(err || 'Some error occurred while deleting the recipe.');
+      } else {
+        res.status(204).send(result);
+      }
+    });
+  } catch (err) {
+    res.status(500).json(err || 'Some error occurred while deleting the recipe.');
+  }
 };

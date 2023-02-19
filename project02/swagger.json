@@ -54,6 +54,33 @@
             "description": "Invalid recipe name value"
           }
         }
+      },
+      "delete": {
+        "tags": ["recipe"],
+        "summary": "Delete recipe",
+        "description": "",
+        "operationId": "deleteRecipe",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "recipeName",
+            "in": "path",
+            "description": "The recipe to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted recipe"
+          },
+          "400": {
+            "description": "Invalid recipe supplied"
+          },
+          "404": {
+            "description": "Recipe not found"
+          }
+        }
       }
     },
     "/user/{username}": {
